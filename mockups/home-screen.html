@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeMoney - Home Screen Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F5F5F5;
+            color: #212121;
+            line-height: 1.5;
+        }
+        
+        .phone-container {
+            max-width: 375px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .status-bar {
+            height: 44px;
+            background: #4CAF50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .screen {
+            height: 667px;
+            background: #F5F5F5;
+            overflow-y: auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #F5F5F5;
+        }
+        
+        .greeting h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .greeting p {
+            color: #757575;
+            font-size: 16px;
+        }
+        
+        .profile-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 22px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #4CAF50;
+            font-size: 20px;
+        }
+        
+        .balance-card {
+            margin: 0 20px 24px;
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            border-radius: 16px;
+            padding: 24px;
+            color: white;
+        }
+        
+        .balance-label {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .balance-amount {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .balance-details {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .balance-item h4 {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+        
+        .balance-item p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .section {
+            margin-bottom: 24px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 0 20px;
+            margin-bottom: 16px;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 8px;
+            padding: 0 16px;
+            overflow-x: auto;
+        }
+        
+        .quick-action {
+            min-width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .quick-action.income {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+        
+        .quick-action.expense {
+            background: rgba(244, 67, 54, 0.1);
+            color: #F44336;
+        }
+        
+        .quick-action.goal {
+            background: rgba(255, 152, 0, 0.1);
+            color: #FF9800;
+        }
+        
+        .quick-action.report {
+            background: rgba(33, 150, 243, 0.1);
+            color: #2196F3;
+        }
+        
+        .quick-action-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .transactions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            margin-bottom: 16px;
+        }
+        
+        .see-all {
+            color: #4CAF50;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .transactions-container {
+            background: white;
+            margin: 0 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .transaction-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+        
+        .transaction-icon.income {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+        
+        .transaction-icon.expense {
+            background: rgba(244, 67, 54, 0.1);
+            color: #F44336;
+        }
+        
+        .transaction-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .transaction-category {
+            font-size: 14px;
+            color: #757575;
+        }
+        
+        .transaction-right {
+            text-align: right;
+        }
+        
+        .transaction-amount {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .transaction-amount.income {
+            color: #4CAF50;
+        }
+        
+        .transaction-amount.expense {
+            color: #F44336;
+        }
+        
+        .transaction-date {
+            font-size: 12px;
+            color: #757575;
+        }
+        
+        .tab-bar {
+            height: 80px;
+            background: white;
+            border-top: 1px solid #E0E0E0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #757575;
+        }
+        
+        .tab-item.active {
+            color: #4CAF50;
+        }
+        
+        .tab-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="status-bar">
+            <span>9:41</span>
+            <span>100%</span>
+        </div>
+        
+        <div class="screen">
+            <div class="header">
+                <div class="greeting">
+                    <h1>Olá! 👋</h1>
+                    <p>Bem-vindo de volta</p>
+                </div>
+                <div class="profile-btn">👤</div>
+            </div>
+            
+            <div class="balance-card">
+                <div class="balance-label">Saldo Total</div>
+                <div class="balance-amount">R$ 2.450,75</div>
+                <div class="balance-details">
+                    <div class="balance-item">
+                        <h4>Receitas</h4>
+                        <p>+R$ 3.500,00</p>
+                    </div>
+                    <div class="balance-item">
+                        <h4>Despesas</h4>
+                        <p>-R$ 1.049,25</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Ações Rápidas</div>
+                <div class="quick-actions">
+                    <div class="quick-action income">
+                        <div class="quick-action-icon">⬇️</div>
+                        <div>Receita</div>
+                    </div>
+                    <div class="quick-action expense">
+                        <div class="quick-action-icon">⬆️</div>
+                        <div>Despesa</div>
+                    </div>
+                    <div class="quick-action goal">
+                        <div class="quick-action-icon">🎯</div>
+                        <div>Meta</div>
+                    </div>
+                    <div class="quick-action report">
+                        <div class="quick-action-icon">📊</div>
+                        <div>Relatório</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="transactions-header">
+                    <div class="section-title" style="margin: 0;">Transações Recentes</div>
+                    <div class="see-all">Ver todas</div>
+                </div>
+                <div class="transactions-container">
+                    <div class="transaction-item">
+                        <div class="transaction-left">
+                            <div class="transaction-icon income">⬇️</div>
+                            <div>
+                                <div class="transaction-title">Salário</div>
+                                <div class="transaction-category">Trabalho</div>
+                            </div>
+                        </div>
+                        <div class="transaction-right">
+                            <div class="transaction-amount income">+R$ 3.500,00</div>
+                            <div class="transaction-date">2024-01-15</div>
+                        </div>
+                    </div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-left">
+                            <div class="transaction-icon expense">⬆️</div>
+                            <div>
+                                <div class="transaction-title">Supermercado</div>
+                                <div class="transaction-category">Alimentação</div>
+                            </div>
+                        </div>
+                        <div class="transaction-right">
+                            <div class="transaction-amount expense">-R$ 120,50</div>
+                            <div class="transaction-date">2024-01-14</div>
+                        </div>
+                    </div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-left">
+                            <div class="transaction-icon expense">⬆️</div>
+                            <div>
+                                <div class="transaction-title">Combustível</div>
+                                <div class="transaction-category">Transporte</div>
+                            </div>
+                        </div>
+                        <div class="transaction-right">
+                            <div class="transaction-amount expense">-R$ 85,00</div>
+                            <div class="transaction-date">2024-01-13</div>
+                        </div>
+                    </div>
+                    
+                    <div class="transaction-item">
+                        <div class="transaction-left">
+                            <div class="transaction-icon income">⬇️</div>
+                            <div>
+                                <div class="transaction-title">Freelance</div>
+                                <div class="transaction-category">Trabalho</div>
+                            </div>
+                        </div>
+                        <div class="transaction-right">
+                            <div class="transaction-amount income">+R$ 450,00</div>
+                            <div class="transaction-date">2024-01-12</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-bar">
+            <div class="tab-item active">
+                <div class="tab-icon">🏠</div>
+                <div>Home</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">💰</div>
+                <div>Wallet</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">➕</div>
+                <div>Add</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">📊</div>
+                <div>Reports</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">👤</div>
+                <div>Profile</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

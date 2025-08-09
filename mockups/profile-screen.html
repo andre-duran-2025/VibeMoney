@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeMoney - Profile Screen Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F5F5F5;
+            color: #212121;
+            line-height: 1.5;
+        }
+        
+        .phone-container {
+            max-width: 375px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .status-bar {
+            height: 44px;
+            background: #4CAF50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .screen {
+            height: 667px;
+            background: #F5F5F5;
+            overflow-y: auto;
+        }
+        
+        .header {
+            padding: 20px 20px 10px;
+            background: #F5F5F5;
+        }
+        
+        .header-title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .profile-section {
+            text-align: center;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background: #E0E0E0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #757575;
+        }
+        
+        .edit-image-button {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            background: #4CAF50;
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .user-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .user-email {
+            font-size: 16px;
+            color: #757575;
+        }
+        
+        .section {
+            margin-bottom: 24px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 0 20px;
+            margin-bottom: 12px;
+        }
+        
+        .options-container {
+            background: white;
+            margin: 0 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .option-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .option-item:last-child {
+            border-bottom: none;
+        }
+        
+        .option-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background: rgba(76, 175, 80, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: #4CAF50;
+            font-size: 20px;
+        }
+        
+        .option-content {
+            flex: 1;
+        }
+        
+        .option-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .option-description {
+            font-size: 14px;
+            color: #757575;
+        }
+        
+        .chevron {
+            color: #757575;
+            font-size: 16px;
+        }
+        
+        .support-option .option-icon {
+            background: rgba(117, 117, 117, 0.1);
+            color: #757575;
+        }
+        
+        .logout-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            margin: 0 20px;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #F44336;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .logout-icon {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .tab-bar {
+            height: 80px;
+            background: white;
+            border-top: 1px solid #E0E0E0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #757575;
+        }
+        
+        .tab-item.active {
+            color: #4CAF50;
+        }
+        
+        .tab-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="status-bar">
+            <span>9:41</span>
+            <span>100%</span>
+        </div>
+        
+        <div class="screen">
+            <div class="header">
+                <h1 class="header-title">Perfil</h1>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <div class="profile-image">👤</div>
+                    <div class="edit-image-button">📷</div>
+                </div>
+                <div class="user-name">Usuário</div>
+                <div class="user-email">usuario@email.com</div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Configurações da Conta</div>
+                <div class="options-container">
+                    <div class="option-item">
+                        <div class="option-left">
+                            <div class="option-icon">👤</div>
+                            <div class="option-content">
+                                <div class="option-title">Informações Pessoais</div>
+                                <div class="option-description">Nome, email, telefone</div>
+                            </div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item">
+                        <div class="option-left">
+                            <div class="option-icon">🛡️</div>
+                            <div class="option-content">
+                                <div class="option-title">Segurança</div>
+                                <div class="option-description">Senha, biometria, PIN</div>
+                            </div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item">
+                        <div class="option-left">
+                            <div class="option-icon">💳</div>
+                            <div class="option-content">
+                                <div class="option-title">Contas Bancárias</div>
+                                <div class="option-description">Gerenciar contas vinculadas</div>
+                            </div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item">
+                        <div class="option-left">
+                            <div class="option-icon">📋</div>
+                            <div class="option-content">
+                                <div class="option-title">Categorias</div>
+                                <div class="option-description">Personalizar categorias</div>
+                            </div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item">
+                        <div class="option-left">
+                            <div class="option-icon">🔔</div>
+                            <div class="option-content">
+                                <div class="option-title">Notificações</div>
+                                <div class="option-description">Alertas e lembretes</div>
+                            </div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item">
+                        <div class="option-left">
+                            <div class="option-icon">☁️</div>
+                            <div class="option-content">
+                                <div class="option-title">Backup e Sincronização</div>
+                                <div class="option-description">Dados na nuvem</div>
+                            </div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Suporte</div>
+                <div class="options-container">
+                    <div class="option-item support-option">
+                        <div class="option-left">
+                            <div class="option-icon">❓</div>
+                            <div class="option-title">Central de Ajuda</div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item support-option">
+                        <div class="option-left">
+                            <div class="option-icon">✉️</div>
+                            <div class="option-title">Fale Conosco</div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item support-option">
+                        <div class="option-left">
+                            <div class="option-icon">⭐</div>
+                            <div class="option-title">Avaliar App</div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                    
+                    <div class="option-item support-option">
+                        <div class="option-left">
+                            <div class="option-icon">ℹ️</div>
+                            <div class="option-title">Sobre</div>
+                        </div>
+                        <div class="chevron">›</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="logout-button">
+                    <span class="logout-icon">🚪</span>
+                    <span>Sair da Conta</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-bar">
+            <div class="tab-item">
+                <div class="tab-icon">🏠</div>
+                <div>Home</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">💰</div>
+                <div>Wallet</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">➕</div>
+                <div>Add</div>
+            </div>
+            <div class="tab-item">
+                <div class="tab-icon">📊</div>
+                <div>Reports</div>
+            </div>
+            <div class="tab-item active">
+                <div class="tab-icon">👤</div>
+                <div>Profile</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
